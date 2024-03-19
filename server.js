@@ -48,10 +48,7 @@ app.use("/api/profit", Profit);
 // Testing
 app.get("/api/root", (req, res) => {
   res.send({
-    message: "HSD AI Server Is Running On Aws Update Version Is v(1.0.1)",
-    database_user: `${process.env.DB_USER}`,
-    database_password: `${process.env.DB_PASSWORD}`,
-    jwt_token: `${process.env.JWT_SECRET}`,
+    message: "HSD AI Server Is Running On Aws Update Version Is v(1.0.0)",
   });
 });
 
