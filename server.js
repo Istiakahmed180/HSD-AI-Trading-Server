@@ -23,7 +23,7 @@ app.use(express.json());
 mongoose.set("strictQuery", false);
 
 // MongoDB connection
-const mongoUrl = `mongodb+srv://aiTreading:cf2SeS6hGuiePRiq@cluster0.pwqsejd.mongodb.net/aiTreading?retryWrites=true&w=majority`;
+const mongoUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.pwqsejd.mongodb.net/aiTreading?retryWrites=true&w=majority`;
 
 mongoose
   .connect(mongoUrl, {
@@ -49,6 +49,9 @@ app.use("/api/profit", Profit);
 app.get("/api/root", (req, res) => {
   res.send({
     message: "HSD AI Server Is Running On Aws Update Version Is v(1.0.1)",
+    database_user: `${process.env.DB_USER}`,
+    database_password: `${process.env.DB_PASSWORD}`,
+    jwt_token: `${process.env.JWT_SECRET}`,
   });
 });
 
