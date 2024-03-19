@@ -48,7 +48,7 @@ app.use("/api/profit", Profit);
 // Testing
 app.get("/api/root", (req, res) => {
   res.send({
-    message: "Shagor vai beya korben misti kobe kauaben?????",
+    message: "HSD AI Server Is Running On Aws Update Version Is v(1.0.0)",
   });
 });
 
