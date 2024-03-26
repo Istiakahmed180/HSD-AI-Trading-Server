@@ -20,11 +20,11 @@ cron.schedule("0 0 * * *", async () => {
       const dailyIncrement = deposit.clientDeposit / daysDifference;
 
       if (deposit.dailyIncrement) {
-        deposit.amount += deposit.dailyIncrement;
+        // deposit.amount += deposit.dailyIncrement;
         deposit.profit += deposit.dailyIncrement;
       } else {
         deposit.dailyIncrement = dailyIncrement;
-        deposit.amount += deposit.dailyIncrement;
+        // deposit.amount += deposit.dailyIncrement;
         deposit.profit += deposit.dailyIncrement;
       }
 
@@ -138,8 +138,6 @@ Deposit.put("/withdraw-deposit-money", async (req, res) => {
 
     deposit.depositAmount = deposit.amount;
     deposit.profitPercentAmount = deposit.depositAmount * 0.03;
-    deposit.depositAmount =
-      deposit.depositAmount - deposit.depositAmount * 0.03;
     deposit.amount = 0;
 
     const updatedDeposit = await deposit.save();
@@ -187,7 +185,6 @@ Deposit.put("/withdraw-profit-money", async (req, res) => {
     }
 
     profit.profit -= profitAmount;
-    profit.amount -= profitAmount;
     profit.profitWithdrawDate = moment().add(30, "days");
 
     await profit.save();
